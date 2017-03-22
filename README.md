@@ -1,24 +1,21 @@
-# README
+# Currertor API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A RoR API consumes API from fixer.io for converting currencies.
 
-Things you may want to cover:
+## Endpoints
 
-* Ruby version
+```ruby
+POST /api/v1/converter/convert
+```
 
-* System dependencies
+|Field   |Type         |Description                  |
+|--------|-------------|-----------------------------|
+|amount  |Number       |currency amount              |
+|base    |String       |origin currency              |
+|symbols |String       |target currency              |
 
-* Configuration
+Response example:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```json
+{"amount":35328.84,"fixer_code":200,"status":"ok"}
+```
