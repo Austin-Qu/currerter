@@ -17,5 +17,5 @@ POST /api/v1/converter/convert
 Response example:
 
 ```json
-{"amount":35328.84,"fixer_code":200,"status":"ok"}
+{"base":"AUD","date":"2017-03-22","rates":{"USD":0.76722},"converted_amount":306.88800000000003}
 ```
