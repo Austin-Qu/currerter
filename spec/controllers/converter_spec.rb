@@ -1,19 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe 'Converter API', type: :request do
-  describe 'POST /api/v1/converter/convert' do
+  describe 'convert method' do
     let(:valid_params) {{amount: 123.50, base: 'AUD', symbols: 'USD'}}
+    before do
+      post '/api/v1/converter/convert', params: valid_params
+    end
 
     context 'when this request is valid' do
-      before {post '/api/v1/converter/convert', params: valid_params}
-
       it 'has ok status' do
         expect(response).to have_http_status(200)
       end
 
       it 'returns rates' do
-        body = JSON.parse(response.body)
-        expect(body['amount']).to be_a(Float)
+        expect(JSON.parse(response.body)['rates']).not_to be_empty
       end
     end
   end
